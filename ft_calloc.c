@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 14:27:15 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/01 16:48:36 by mkarim           ###   ########.fr       */
+/*   Created: 2021/11/02 09:42:04 by mkarim            #+#    #+#             */
+/*   Updated: 2021/11/02 12:55:25 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(char *s)
+void	*ft_calloc(size_t n, size_t size)
 {
-	int		i;
-	int		signe;
-	int		res;
+	void	*p;
 
-	i = 0;
-	signe = 1;
-	res = 0;
-	while (s[i] == ' ' || s[i] == '\t')
-		i++;
-	while (s[i] == '-' || s[i] == '+')
-	{
-		if (s[i] == '-')
-			signe *= -1;
-		i++;
-	}
-	while (s[i] >= '0' && s[i] <= '9')
-	{
-		res = res * 10 + (s[i] - 48);
-		i++;
-	}
-	return (res);
+	p = malloc(n * size);
+	if (!p)
+		return (p);
+	return (ft_bzero(p, n));
 }

@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 14:40:37 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/01 15:22:54 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/02 13:01:49 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,15 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	sub = malloc(len);
 	while (i < len)
 	{
-		sub[i] = s[start];
+		sub[i] = s[start - 1];
 		i++;
 		start++;
 	}
+	sub[i] = '\0';
 	return (sub);
 }
 
 int main(void)
 {
-    printf("%s\n", ft_substr("Helle world how are you", 8, 7));
+    printf("%s\n", ft_substr("abcdefghijklmnopqrstvwxyz", 8, 7));
 }

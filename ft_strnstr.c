@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 14:27:15 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/01 16:48:36 by mkarim           ###   ########.fr       */
+/*   Created: 2021/11/02 08:02:30 by mkarim            #+#    #+#             */
+/*   Updated: 2021/11/02 08:15:33 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(char *s)
+char	*ft_strnstr(const char *s, const char *sub, size_t len)
 {
-	int		i;
-	int		signe;
-	int		res;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	signe = 1;
-	res = 0;
-	while (s[i] == ' ' || s[i] == '\t')
-		i++;
-	while (s[i] == '-' || s[i] == '+')
+	while (s[i] && i < len)
 	{
-		if (s[i] == '-')
-			signe *= -1;
+		j = 0;
+		while (s[i + j] == sub[j])
+		{
+			if (sub[j + 1] == '\0')
+				return ((char *)s + i);
+			j++;
+		}
 		i++;
 	}
-	while (s[i] >= '0' && s[i] <= '9')
-	{
-		res = res * 10 + (s[i] - 48);
-		i++;
-	}
-	return (res);
+	return ((char *)0);
 }

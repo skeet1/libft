@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 14:27:15 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/01 16:48:36 by mkarim           ###   ########.fr       */
+/*   Created: 2021/11/02 09:15:19 by mkarim            #+#    #+#             */
+/*   Updated: 2021/11/02 09:55:40 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(char *s)
+char	*ft_strdup(const char *s)
 {
 	int		i;
-	int		signe;
-	int		res;
+	char	*p;
 
 	i = 0;
-	signe = 1;
-	res = 0;
-	while (s[i] == ' ' || s[i] == '\t')
-		i++;
-	while (s[i] == '-' || s[i] == '+')
+	p = (char *)malloc(ft_strlen((char *)s))
+	if (!p)
+		return (p);
+	while (s[i])
 	{
-		if (s[i] == '-')
-			signe *= -1;
+		p[i] = s[i];
 		i++;
 	}
-	while (s[i] >= '0' && s[i] <= '9')
-	{
-		res = res * 10 + (s[i] - 48);
-		i++;
-	}
-	return (res);
+	p[i] = '\0';
+	return (p);
+}
+
+int		main(void)
+{
+	char	s[] = "Hello world";
+
+	printf("%s\n", ft_strdup(s));
 }

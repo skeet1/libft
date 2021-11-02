@@ -1,38 +1,62 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 14:27:15 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/01 16:48:36 by mkarim           ###   ########.fr       */
+/*   Created: 2021/11/02 09:48:33 by mkarim            #+#    #+#             */
+/*   Updated: 2021/11/02 10:38:36 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(char *s)
+int		nb_digits(int n)
 {
 	int		i;
-	int		signe;
-	int		res;
 
 	i = 0;
-	signe = 1;
-	res = 0;
-	while (s[i] == ' ' || s[i] == '\t')
-		i++;
-	while (s[i] == '-' || s[i] == '+')
+	if (n == 0)
+		return (1);
+	while (n != 0)
 	{
-		if (s[i] == '-')
-			signe *= -1;
+		n /= 10;
 		i++;
 	}
-	while (s[i] >= '0' && s[i] <= '9')
+	return (i);
+}
+
+char	*ft_itoa(int n)
+{
+	int		size;
+	int		len;
+	long	nb;
+	char	*p;
+
+	size = 0;
+	if (n < 0)
+		size = 1;
+	len = nb_digits(n) + size;
+	p = (char *)malloc(len);
+	if (!p)
+		return (p);
+	nb = n;
+	if (nb < 0)
 	{
-		res = res * 10 + (s[i] - 48);
-		i++;
+		p[0] = '-';
+		nb *= -1;
 	}
-	return (res);
+	while (--len >= size)
+	{
+		p[len] = (nb % 10) + 48;
+		nb /= 10;
+	}
+	return (p);
+}
+
+int	main(void)
+{
+	printf("%s\n", ft_itoa(0));
+	return (0);
 }

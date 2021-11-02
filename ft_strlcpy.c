@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 14:27:15 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/01 16:48:36 by mkarim           ###   ########.fr       */
+/*   Created: 2021/11/02 07:52:33 by mkarim            #+#    #+#             */
+/*   Updated: 2021/11/02 08:02:10 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(char *s)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	int		i;
-	int		signe;
-	int		res;
+	size_t	i;
 
 	i = 0;
-	signe = 1;
-	res = 0;
-	while (s[i] == ' ' || s[i] == '\t')
-		i++;
-	while (s[i] == '-' || s[i] == '+')
+	while (src[i] && i < size)
 	{
-		if (s[i] == '-')
-			signe *= -1;
+		dst[i] = src[i];
 		i++;
 	}
-	while (s[i] >= '0' && s[i] <= '9')
-	{
-		res = res * 10 + (s[i] - 48);
-		i++;
-	}
-	return (res);
+	dst[i] = '\0';
+	return (i);
 }
