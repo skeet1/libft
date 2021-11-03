@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 09:22:51 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/03 11:35:21 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/03 12:06:49 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		nbofL(char *s, char c)
 	return (l);
 }
 
-void	remplissage(char **p, char *s, char c, int l)
+char	**remplissage(char **p, char *s, char c, int l)
 {
 	int		i;
 	int		j;
@@ -37,7 +37,7 @@ void	remplissage(char **p, char *s, char c, int l)
 	i = 0;
 	j = 0;
 	cl = 0;
-	while (i >=0)
+	while (i < l)
 	{
 		cl = 0;
 		while (s[j] == c)
@@ -48,13 +48,13 @@ void	remplissage(char **p, char *s, char c, int l)
 			j++;
 			cl++;
 		}
+		p[i][j] = '\0';
 		i++;
 	}
-	printf("%s\n", p[0]);
+	return (p);
 }
 
-void	**ft_split(char const *s, char c)
-
+char	**ft_strsplit(char const *s, char c)
 {
 	char	*p[nbofL((char *)s, c)];
 	int		l;
@@ -75,17 +75,21 @@ void	**ft_split(char const *s, char c)
 			cl++;
 			j++;
 		}
-		printf("%d\n", cl);
-		p[i] = (char *)(malloc(cl));
+		p[i] = (char *)(malloc(cl + 1));
 		i++;
 	}
-	//return (remplissage(p, (char *)s, c, l));
+	return (remplissage(p, (char *)s, c, l));
 }
 
 int		main(void)
 {
-	char	s[] = "*hello****world*how*are*you****";
+	char	s[] = "****hello****world*how*are*you****";
 	char	c = '*';
+	char	**str;
+	int		i;
 
-	ft_split(s, c);
+	str=  ft_strsplit(s, c);
+	i = 0;
+	while (i < 5)
+		printf("%s\n", str[i++]);
 }
