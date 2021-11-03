@@ -6,13 +6,13 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 09:22:51 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/03 12:06:49 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/03 12:11:32 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		nbofL(char *s, char c)
+int	nbofL(char *s, char c)
 {
 	int		l;
 	int		i;
