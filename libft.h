@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 08:43:06 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/02 09:15:12 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/03 08:00:46 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define LIBFT_H
 
 # include <stdio.h>
+# include <unistd.h>
+# include <fcntl.h>
 # include <stdlib.h>
 # include <string.h>
 

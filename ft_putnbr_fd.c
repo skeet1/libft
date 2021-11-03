@@ -1,42 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 15:23:37 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/03 09:22:06 by mkarim           ###   ########.fr       */
+/*   Created: 2021/11/03 08:10:39 by mkarim            #+#    #+#             */
+/*   Updated: 2021/11/03 08:24:34 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*s;
-	int		i;
-	int		j;
+	long	nb;
+	char	c;
 
-	s = malloc(ft_strlen((char *)s1) + ft_strlen((char *)s2));
-	i = 0;
-	j = 0;
-	printf("%d\n", ft_strlen((char *)s1) + ft_strlen((char *)s2));
-	while (s1[i])
+	nb = n;
+	if (nb < 0)
 	{
-		s[i] = s1[i];
-		i++;
+		nb *= -1;
+		c = '-';
+		write(fd, &c, 1);
 	}
-	while (s2[j])
+	if (nb > 9)
 	{
-		s[i + j] = s2[j];
-		j++;
+		ft_putnbr_fd(nb / 10, fd);
+		ft_putnbr_fd(nb % 10, fd);
 	}
-	s[i + j] = '\0';
-	return (s);
+	else
+	{
+		c = nb + 48;
+		write(fd, &c, 1);
+	}
 }
 
-int	main(void)
+int		main(void)
 {
-	printf("%s\n", ft_strjoin("Hello ", "World"));
+	int		fd;
+
+	fd = open("hello", O_CREAT | O_RDWR);
+	ft_putnbr_fd(-2147483648, fd);
 }
