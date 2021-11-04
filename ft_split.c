@@ -6,13 +6,13 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 09:22:51 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/03 16:50:38 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/03 17:56:46 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	nbofL(char *s, char c)
+int	nbofl(char *s, char c)
 {
 	int		l;
 	int		i;
@@ -56,13 +56,16 @@ char	**remplissage(char **p, char *s, char c, int l)
 
 char	**ft_split(char const *s, char c)
 {
-	char	*p[nbofL((char *)s, c)];
+	char	**p;
 	int		l;
 	int		i;
 	int		j;
 	int		cl;
 
-	l = nbofL((char *)s, c);
+	l = nbofl((char *)s, c);
+	p = (char **)malloc(l * sizeof(char *));
+	if (!p)
+		return (p);
 	i = 0;
 	j = 0;
 	while (i < l)
@@ -70,26 +73,10 @@ char	**ft_split(char const *s, char c)
 		cl = 0;
 		while (s[j] == c)
 			j++;
-		while (s[j] != c)
-		{
+		while (s[j++] != c)
 			cl++;
-			j++;
-		}
 		p[i] = (char *)(malloc(cl + 1));
 		i++;
 	}
 	return (remplissage(p, (char *)s, c, l));
-}
-
-int		main(void)
-{
-	char	s[] = "****hello****world*how*are*you****";
-	char	c = '*';
-	char	**str;
-	int		i;
-
-	str=  ft_strsplit(s, c);
-	i = 0;
-	while (i < 5)
-		printf("%s\n", str[i++]);
 }

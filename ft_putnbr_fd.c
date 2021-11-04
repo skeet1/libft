@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 08:10:39 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/03 08:24:34 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/04 07:39:03 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,4 @@ void	ft_putnbr_fd(int n, int fd)
 		c = nb + 48;
 		write(fd, &c, 1);
 	}
-}
-
-int		main(void)
-{
-	int		fd;
-
-	fd = open("hello", O_CREAT | O_RDWR);
-	ft_putnbr_fd(-2147483648, fd);
 }

@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 09:15:19 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/02 09:55:40 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/03 18:02:11 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strdup(const char *s)
 
 	i = 0;
 	p = (char *)malloc(ft_strlen((char *)s))
-	if (!p)
+		if (!p)
 		return (p);
 	while (s[i])
 	{
@@ -28,11 +28,4 @@ char	*ft_strdup(const char *s)
 	}
 	p[i] = '\0';
 	return (p);
-}
-
-int		main(void)
-{
-	char	s[] = "Hello world";
-
-	printf("%s\n", ft_strdup(s));
 }

@@ -6,13 +6,13 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 14:27:15 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/01 16:48:36 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/03 17:23:42 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(char *s)
+int	ft_atoi(char *s)
 {
 	int		i;
 	int		signe;
@@ -21,7 +21,8 @@ int		ft_atoi(char *s)
 	i = 0;
 	signe = 1;
 	res = 0;
-	while (s[i] == ' ' || s[i] == '\t')
+	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n' || s[i] == '\r'
+		|| s[i] == '\v' || s[i] == '\f')
 		i++;
 	while (s[i] == '-' || s[i] == '+')
 	{
@@ -34,5 +35,5 @@ int		ft_atoi(char *s)
 		res = res * 10 + (s[i] - 48);
 		i++;
 	}
-	return (res);
+	return (res * signe);
 }

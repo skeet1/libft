@@ -6,13 +6,13 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 16:49:50 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/03 15:51:59 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/03 18:34:45 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_cins(char c, char *s)
+static int	ft_cins(char c, char *s)
 {
 	int		i;
 
@@ -35,7 +35,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (s1[i] && ft_cins(s1[i], (char *)set) == 1)
 		i++;
 	start = i;
-	i = ft_strlen((char *)s1) -1;
+	i = ft_strlen((char *)s1) - 1;
 	while (s1[i] && ft_cins(s1[i], (char *)set) == 1)
 		i--;
 	end = i;
@@ -45,7 +45,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (str);
 }
 
-int		main(void)
+int	main(void)
 {
-	printf("%s\n", ft_strtrim("..//hello././", "./"));
+	printf("%s\n", ft_strtrim("..//hello/./.", ""));
 }

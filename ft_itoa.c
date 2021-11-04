@@ -6,13 +6,13 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 09:48:33 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/02 10:38:36 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/03 17:40:26 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		nb_digits(int n)
+int	nb_digits(int n)
 {
 	int		i;
 
