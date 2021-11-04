@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 09:48:33 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/03 17:40:26 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/04 10:07:05 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_itoa(int n)
 	size = 0;
 	if (n < 0)
 		size = 1;
-	len = nb_digits(n) + size;
+	len = nb_digits(n) + size + 1;
 	p = (char *)malloc(len);
 	if (!p)
 		return (p);
@@ -47,16 +47,11 @@ char	*ft_itoa(int n)
 		p[0] = '-';
 		nb *= -1;
 	}
+	p[--len] = '\0';
 	while (--len >= size)
 	{
 		p[len] = (nb % 10) + 48;
 		nb /= 10;
 	}
 	return (p);
-}
-
-int	main(void)
-{
-	printf("%s\n", ft_itoa(0));
-	return (0);
 }

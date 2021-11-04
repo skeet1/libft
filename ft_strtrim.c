@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 16:49:50 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/03 18:34:45 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/04 09:55:47 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,4 @@ char	*ft_strtrim(char const *s1, char const *set)
 	str = ft_substr((char *)s1, start, len);
 	str[len + 1] = '\0';
 	return (str);
-}
-
-int	main(void)
-{
-	printf("%s\n", ft_strtrim("..//hello/./.", ""));
 }

@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 13:30:27 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/03 17:41:06 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/04 10:45:44 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,10 @@ void	ft_bzero(void *s, size_t n)
 		str[i] = 0;
 		i++;
 	}
+}
+int main()
+{
+	char s[11] = "hello world";
+	ft_bzero(s+4, 1);
+	printf("%s\n", s);
 }

@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 09:42:04 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/02 12:55:25 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/04 08:28:04 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ void	*ft_calloc(size_t n, size_t size)
 	p = malloc(n * size);
 	if (!p)
 		return (p);
-	return (ft_bzero(p, n));
+	ft_bzero(p, n);
+	return (p);
 }

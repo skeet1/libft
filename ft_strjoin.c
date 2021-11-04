@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 15:23:37 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/03 09:22:06 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/04 09:56:14 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,4 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	s[i + j] = '\0';
 	return (s);
-}
-
-int	main(void)
-{
-	printf("%s\n", ft_strjoin("Hello ", "World"));
 }
