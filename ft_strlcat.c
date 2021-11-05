@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 07:16:50 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/04 08:26:33 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/04 19:00:16 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	{
 		while (src[j] != '\0')
 			j++;
-		return (i + j);
+		return (i + size);
 	}
 	while (src[j] && j < size - 1)
 	{

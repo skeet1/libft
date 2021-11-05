@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 09:22:51 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/04 09:51:29 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/04 15:13:53 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ char	**ft_split(char const *s, char c)
 	int		j;
 	int		cl;
 
+	if (!s)
+		return (NULL);
 	l = nbofl((char *)s, c);
 	p = (char **)malloc(l * sizeof(char *));
 	if (!p)

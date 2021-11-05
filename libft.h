@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 08:43:06 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/04 07:51:23 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/04 15:31:24 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <string.h>
+# include <stddef.h>
 
 int		ft_tolower(int c);
 int		ft_toupper(int c);
@@ -26,7 +27,7 @@ int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
-int		ft_strlen(char *s);
+int		ft_strlen(char const *s);
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
