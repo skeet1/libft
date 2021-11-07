@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 15:33:31 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/06 19:04:32 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/07 14:07:07 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,16 @@ char	**ft_split(char const *s, char c)
 		while (s[j++] != c)
 			cl++;
 		p[i] = (char *)malloc((cl + 1) * sizeof(char));
+		if (!p[i])
+		{
+			free(p);
+			return (NULL);
+		}
 		i++;
 	}
 	return (remplissage(p, (char *)s, c, l));
 }
-
+/*
 int main()
 {
 	char	**str;
@@ -101,4 +106,4 @@ int main()
 		printf("s[%d] = %s\n", i, str[i]);
 		i++;
 	}
-}
+}*/

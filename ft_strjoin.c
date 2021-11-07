@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 15:23:37 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/06 16:41:43 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/07 13:15:30 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	lens1 = ft_strlen(s1);
 	lens2 = ft_strlen(s2);
+	if (!s1 || !s2)
+		return (NULL);
 	s = (char *)malloc((lens1 + lens2 + 1) * sizeof(char));
 	if (!s)
 		return (NULL);

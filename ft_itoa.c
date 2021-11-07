@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 09:48:33 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/06 17:19:16 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/07 14:05:14 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static int	nb_digits(int n)
 	i = 0;
 	if (n == 0)
 		return (1);
+	if (n < 0)
+		i = 1;
 	while (n != 0)
 	{
 		n /= 10;
@@ -37,16 +39,16 @@ char	*ft_itoa(int n)
 	size = 0;
 	if (n < 0)
 		size = 1;
-	len = nb_digits(n) + size;
-	p = (char *)malloc(len);
+	len = nb_digits(n);
+	p = (char *)malloc((len + 1) * sizeof(char));
 	if (!p)
 		return (p);
 	nb = n;
 	if (nb < 0)
-	{
 		p[0] = '-';
+	if (nb < 0)
 		nb *= -1;
-	}
+	p[len] = '\0';
 	while (--len >= size)
 	{
 		p[len] = (nb % 10) + 48;
