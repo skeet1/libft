@@ -6,57 +6,99 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 15:33:31 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/01 16:05:07 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/06 19:04:32 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		count_l(char const *s, char c)
+int	nbofl(char *s, char c)
 {
-	int		i;
 	int		l;
+	int		i;
 
-	i = 1;
+	i = 0;
 	l = 0;
-	if ((s[0] >= 'a' && s[0] <= 'z') || (s[0] >= 'A' && s[0] <= 'Z'))
-		l = 1;
 	while (s[i])
 	{
-		if (((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z')) && s[i - 1] == c)
+		if ((s[i] != c && s[i + 1] == c) || (s[i] != c && s[i + 1] == '\0'))
 			l++;
 		i++;
 	}
 	return (l);
 }
 
-int		count_c(char const *s, char c)
+char	**remplissage(char **p, char *s, char c, int l)
 {
 	int		i;
-	int		ch;
+	int		j;
+	int		cl;
 
 	i = 0;
-	ch = 0;
-	while (s[i] && s[i] == c)
-		i++;
-	while (s[i] && s[i] != c)
-	{
-		i++;
-		ch++;
-	}
-	return (ch);
-}
-		
-char	**ft_split(char const *s, char c)
-{
-	char	**str;
-	int		i;
-	int		l;
-
-	i = 0;
-	l = count_l(s, c);
-	*str = (char *)malloc(l);
+	j = 0;
+	cl = 0;
 	while (i < l)
 	{
-		str[i] = (char)malloc(
+		cl = 0;
+		while (s[j] == c)
+			j++;
+		while (s[j] != c)
+		{
+			p[i][cl] = s[j];
+			j++;
+			cl++;
+		}
+		p[i][j] = '\0';
+		i++;
+	}
+	p[i] = 0;
+	return (p);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**p;
+	int		l;
+	int		i;
+	int		j;
+	int		cl;
+
+	if (!s)
+		return (NULL);
+	l = nbofl((char *)s, c);
+	p = (char **)malloc((l + 1) * sizeof(char *));
+	if (!p)
+		return (p);
+	i = 0;
+	j = 0;
+	while (i < l)
+	{
+		cl = 0;
+		while (s[j] == c)
+			j++;
+		while (s[j++] != c)
+			cl++;
+		p[i] = (char *)malloc((cl + 1) * sizeof(char));
+		i++;
+	}
+	return (remplissage(p, (char *)s, c, l));
+}
+
+int main()
+{
+	char	**str;
+	int		l;
+	char	s[] = "-1-2--3---4----5-----42";
+	char	c = '-';
+	int		i;
+
+	i = 0;
+	l = nbofl(s, c);
+	printf("%d\n", l);
+	str = ft_split(s, c);
+	while (i <= l)
+	{
+		printf("s[%d] = %s\n", i, str[i]);
+		i++;
+	}
 }

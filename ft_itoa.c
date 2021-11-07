@@ -6,13 +6,13 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 09:48:33 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/02 10:38:36 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/06 17:19:16 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		nb_digits(int n)
+static int	nb_digits(int n)
 {
 	int		i;
 
@@ -53,10 +53,4 @@ char	*ft_itoa(int n)
 		nb /= 10;
 	}
 	return (p);
-}
-
-int	main(void)
-{
-	printf("%s\n", ft_itoa(0));
-	return (0);
 }
