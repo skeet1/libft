@@ -6,13 +6,13 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 15:33:31 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/07 14:07:07 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/07 17:15:05 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	nbofl(char *s, char c)
+static	int	nbofl(char *s, char c)
 {
 	int		l;
 	int		i;
@@ -28,7 +28,7 @@ int	nbofl(char *s, char c)
 	return (l);
 }
 
-char	**remplissage(char **p, char *s, char c, int l)
+static	char	**remplissage(char **p, char *s, char c, int l)
 {
 	int		i;
 	int		j;
@@ -55,6 +55,20 @@ char	**remplissage(char **p, char *s, char c, int l)
 	return (p);
 }
 
+static	char	**ft_free(char **p, int n)
+{
+	int		i;
+
+	i = 0;
+	while (i < n)
+	{
+		free(p[i]);
+		i++;
+	}
+	free(p);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**p;
@@ -63,8 +77,6 @@ char	**ft_split(char const *s, char c)
 	int		j;
 	int		cl;
 
-	if (!s)
-		return (NULL);
 	l = nbofl((char *)s, c);
 	p = (char **)malloc((l + 1) * sizeof(char *));
 	if (!p)
@@ -80,30 +92,8 @@ char	**ft_split(char const *s, char c)
 			cl++;
 		p[i] = (char *)malloc((cl + 1) * sizeof(char));
 		if (!p[i])
-		{
-			free(p);
-			return (NULL);
-		}
+			return (ft_free(p, i));
 		i++;
 	}
 	return (remplissage(p, (char *)s, c, l));
 }
-/*
-int main()
-{
-	char	**str;
-	int		l;
-	char	s[] = "-1-2--3---4----5-----42";
-	char	c = '-';
-	int		i;
-
-	i = 0;
-	l = nbofl(s, c);
-	printf("%d\n", l);
-	str = ft_split(s, c);
-	while (i <= l)
-	{
-		printf("s[%d] = %s\n", i, str[i]);
-		i++;
-	}
-}*/
