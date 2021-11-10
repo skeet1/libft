@@ -6,7 +6,7 @@
 #    By: mkarim <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/04 07:51:30 by mkarim            #+#    #+#              #
-#    Updated: 2021/11/08 14:00:13 by mkarim           ###   ########.fr        #
+#    Updated: 2021/11/09 11:41:38 by mkarim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,26 +19,26 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen
 	  ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c \
 	  ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
-BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c \
+#BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c \
 		ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c \
 		ft_lstmap_bonus.c
 
 OBJ = $(SRC:.c=.o)
 
-BONUS_OBJ = $(BONUS:.c=.o)
+#BONUS_OBJ = $(BONUS:.c=.o)
 
 CC = gcc
 
 FLAGS = -Wall -Wextra -Werror -c
 
 all : $(NAME)
-	ar rc $(NAME) $(OBJ) $(BONUS_OBJ)
+	$(CC) $(FLAGS) $(SRC)
 
-$(NAME) : $(OBJ) $(BONUS_OBJ)
-	$(CC) $(FLAGS) $(SRC) $(BONUS)
+$(NAME) : $(OBJ)
+	ar rc $(NAME) $(OBJ)
 
 clean :
-	rm $(OBJ) $(BONUS_OBJ)
+	rm $(OBJ)
 
 fclean :  clean
 	rm -rf $(NAME)

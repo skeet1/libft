@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 16:49:50 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/07 14:25:51 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/09 17:42:27 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		len;
 	char	*p;
 
+	if (!s1)
+		return (NULL);
 	i = 0;
 	while (s1[i] && c_in_str(set, s1[i]) == 1)
 		i++;
@@ -49,8 +51,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!p)
 		return (p);
 	i = 0;
-	while (start < end)
-		p[i++] = s1[start++];
-	p[i] = '\0';
+	ft_strlcpy(p, s1 + start, len);
 	return (p);
 }

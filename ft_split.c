@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 15:33:31 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/07 18:17:46 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/09 19:04:19 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,15 @@ static	char	**remplissage(char **p, char *s, char c, int l)
 	while (i < l)
 	{
 		cl = 0;
-		while (s[j] == c)
+		while (s[j] && s[j] == c)
 			j++;
-		while (s[j] != c)
+		while (s[j] && s[j] != c)
 		{
 			p[i][cl] = s[j];
 			j++;
 			cl++;
 		}
-		p[i][j] = '\0';
+		p[i][cl] = '\0';
 		i++;
 	}
 	p[i] = 0;
@@ -69,52 +69,37 @@ static	char	**ft_free(char **p, int n)
 	return (NULL);
 }
 
-char	**ft_split(char const *s, char c)
+typedef struct variables
 {
-	char	**p;
 	int		l;
 	int		i;
 	int		j;
 	int		cl;
+}		t_variables;
 
-	l = nbofl((char *)s, c);
-	p = (char **)malloc((l + 1) * sizeof(char *));
-	if (!p)
-		return (p);
-	i = 0;
-	j = 0;
-	while (i < l)
-	{
-		cl = 0;
-		while (s[j] == c)
-			j++;
-		while (s[j++] != c)
-			cl++;
-		p[i] = (char *)malloc((cl + 1) * sizeof(char));
-		if (!p[i])
-			return (ft_free(p, i));
-		i++;
-	}
-	return (remplissage(p, (char *)s, c, l));
-}
-/*
-int main()
+char	**ft_split(char const *s, char c)
 {
-	char	**str;
-	int		l;
-	char	s[] = "-1-2--3---4----5-----42";
-	char	c = '-';
-	int		i;
+	char		**p;
+	t_variables	vb;
 
-	i = 0;
-	l = nbofl(s, c);
-	printf("%d\n", l);
-	str = ft_split(s, c);
-	while (i <= l)
+	if (!s)
+		return (NULL);
+	vb.l = nbofl((char *)s, c);
+	p = (char **)malloc((vb.l + 1) * sizeof(char *));
+	if (!p)
+		return (NULL);
+	vb.i = -1;
+	vb.j = 0;
+	while (++(vb.i) < vb.l)
 	{
-		printf("s[%d] = %s\n", i, str[i]);
-		i++;
+		vb.cl = 0;
+		while (s[vb.j] == c && s[vb.j])
+			(vb.j)++;
+		while (s[vb.j] && s[(vb.j)++] != c)
+			(vb.cl)++;
+		p[vb.i] = (char *)malloc((vb.cl + 1) * sizeof(char));
+		if (!p[vb.i])
+			return (ft_free(p, vb.i));
 	}
-	if (sizeof(str) == (sizeof(char *) * 7))
-		printf("goood");
-}*/
+	return (remplissage(p, (char *)s, c, vb.l));
+}
