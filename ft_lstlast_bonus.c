@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:04:59 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/08 14:06:36 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/10 18:37:38 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,4 +14,7 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }

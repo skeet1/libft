@@ -6,7 +6,7 @@
 #    By: mkarim <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/04 07:51:30 by mkarim            #+#    #+#              #
-#    Updated: 2021/11/09 11:41:38 by mkarim           ###   ########.fr        #
+#    Updated: 2021/11/10 19:12:51 by mkarim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,14 +29,15 @@ OBJ = $(SRC:.c=.o)
 
 CC = gcc
 
-FLAGS = -Wall -Wextra -Werror -c
+FLAGS = -Wall -Wextra -Werror
 
 all : $(NAME)
-	$(CC) $(FLAGS) $(SRC)
+	$(CC) $(FLAGS) -I. -c $(SRC)
 
 $(NAME) : $(OBJ)
 	ar rc $(NAME) $(OBJ)
-
+%.o:%.c libft.h
+	$(CC) $(FLAGS) -I. -c $<
 clean :
 	rm $(OBJ)
 

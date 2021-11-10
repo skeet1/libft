@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 13:53:19 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/08 14:06:11 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/10 18:36:02 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		ft_lstsize(t_list *lst)
 	i = 0;
 	while (lst->next != NULL)
 	{
-		lst++;
+		lst = lst->next;
 		i++;
 	}
 	return (i);
