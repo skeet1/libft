@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 16:49:50 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/09 17:42:27 by mkarim           ###   ########.fr       */
+/*   Updated: 2021/11/11 15:19:17 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	if (!s1)
 		return (NULL);
+	if (!set)
+		return ((char *)s1);
 	i = 0;
 	while (s1[i] && c_in_str(set, s1[i]) == 1)
 		i++;
