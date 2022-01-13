@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 15:33:31 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/11 13:55:51 by mkarim           ###   ########.fr       */
+/*   Updated: 2022/01/13 21:19:25 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,6 @@ static	char	**ft_free(char **p, int n)
 	free(p);
 	return (NULL);
 }
-
-typedef struct variables
-{
-	int		l;
-	int		i;
-	int		j;
-	int		cl;
-}		t_variables;
 
 char	**ft_split(char const *s, char c)
 {

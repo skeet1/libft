@@ -6,7 +6,7 @@
 /*   By: mkarim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 08:43:06 by mkarim            #+#    #+#             */
-/*   Updated: 2021/11/12 11:46:55 by mkarim           ###   ########.fr       */
+/*   Updated: 2022/01/13 21:19:56 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,14 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }				t_list;
+
+typedef struct s_variables
+{
+	int		l;
+	int		i;
+	int		j;
+	int		cl;
+}			t_variavles;
 
 int		ft_tolower(int c);
 int		ft_toupper(int c);
