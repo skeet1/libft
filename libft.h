@@ -29,7 +29,7 @@ typedef struct s_variables
 	int		i;
 	int		j;
 	int		cl;
-}			t_variavles;
+}			t_variables;
 
 int		ft_tolower(int c);
 int		ft_toupper(int c);
